@@ -1,0 +1,59 @@
+   {% load staticfiles %}
+    <html>
+        <head>
+            <title>UNITEC - SISTEMA DE ENCUESTAS</title>
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+            <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+            <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+            <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+            <style>
+                .page-header{
+                   background-color: lightblue;
+                }
+             #menu   {
+                     list-style-type: none;
+                      margin: 0;
+                      padding: 0;
+                      overflow: hidden;
+                      background-color: #333;
+                    }
+
+              #item_menu  {
+                        float: left;
+                }
+
+               #item_menu a {
+                    display: block;
+                    color: white;
+                    text-align: center;
+                    padding: 14px 16px;
+                    text-decoration: none;
+                }
+
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: #111;
+}
+            </style>
+        </head>
+        <body>
+            <div class="page-header">
+               <img src="https://www.unitec.edu.co/sites/default/files/logos/logo_unitec_0.png">
+                <h1><a href="/inicio">Sistema de Encuestas1</a></h1>
+                <ul id="menu">
+                    <li id="item_menu"><a href="/inicio">Home</a></li>
+                    <li id="item_menu"><a href="/preguntas">Cuestionario</a></li>
+                     <li id="item_menu"><a href="/add_pregunta">Administrar Preguntas</a></li>
+                    <li id="item_menu"><a href="/">About</a></li>
+                </ul>
+            </div>
+            <div class="content container">
+                <div class="row">
+                    <div class="col-md-8">
+                        {% block content %}
+                        {% endblock %}
+                    </div>
+                </div>
+            </div>
+        </body>
+    </html>

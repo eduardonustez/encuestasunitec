@@ -1,0 +1,26 @@
+
+{% extends 'plantilla1.html' %}
+
+    {% block content %}
+
+ <form method="POST" action="">{% csrf_token %}
+<h1>Nueva Respuesta</h1>
+<a 
+ {% for field in form %}
+     <div class="field_container">
+         <div class="col-md-2">{{ field.label_tag }}</div>
+         <div class="clearfix"></div>
+         <div class="col-md-2">{{ field }}</div>
+         <div class="clearfix"></div>
+         {% if field.errors %}
+     	<div class="row">
+         <div class="label label-danger col-md-2">
+         	{{ field.errors  }}
+ </div>
+ </div>
+     {% endif %}
+     </div>
+ {% endfor %}
+         <input type="submit" value="Submit">
+ </form>
+  {% endblock %}

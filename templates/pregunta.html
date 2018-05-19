@@ -1,0 +1,35 @@
+
+{% extends 'plantilla1.html' %}
+
+    {% block content %}
+
+ <form method="POST" action="">{% csrf_token %}
+<h3>Bienvenido: {{ user.get_username }}</h3>
+     <h1>Nueva Pregunta</h1>
+<a 
+ {% for field in form %}
+     <div class="field_container">
+          <div class="row">
+        <div class="col-md-6 col-mf-offset-3">
+            <div class="form-group">
+                {{ field.label_tag }}
+                {{ field }}
+            </div>
+        </div>
+    </div>
+
+         {% if field.errors %}
+     	<div class="row">
+         <div class="label label-danger col-md-2">
+         	{{ field.errors  }}
+        </div>
+        </div>
+     {% endif %}
+     </div>
+ {% endfor %}
+         <input type="submit" value="Submit">
+     {% if agregar_respuesta %}
+     <a href="/add_respuesta/{{ Id_NuevaPregunta }}/">Agregar Opción de Respuesta</a>
+     {% endif %}
+ </form>
+  {% endblock %}

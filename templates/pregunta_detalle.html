@@ -1,0 +1,22 @@
+
+{% extends 'plantilla1.html' %}
+
+
+{% block content %}
+
+ <form method="POST" action="">
+{% if pregunta %}
+     <h1>{{ pregunta.id }} {{pregunta.asunto}}</h1>
+
+    {% for rta in pregunta.respuesta_set.all %}
+        <input type="radio" name="choice" id="choice{{ forloop.counter }}" value="{{ rta.id }}" />
+    <label for="choice{{ forloop.counter }}">{{ rta.contenido }}</label><br />
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay información de la pregunta</p>
+{% endif %}
+<input type="submit" value="Enviar Respuesta" />
+     <a href="/preguntas/{{ preg_sig }}/">Siguiente</a>
+ </form>
+{% endblock %}

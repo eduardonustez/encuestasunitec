@@ -1,0 +1,19 @@
+
+{% extends 'plantilla1.html' %}
+
+
+{% block content %}
+
+ <form method="POST" action="">
+<h1>Preguntas</h1>
+{% if lista_preguntas %}
+    <ul>
+    {% for pregunta in lista_preguntas %}
+        <li><a href="/preguntas/{{ pregunta.id }}/">{{ pregunta.asunto }}</a></li>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>No hay encuestas disponibles.</p>
+{% endif %}
+ </form>
+{% endblock %}
